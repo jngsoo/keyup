@@ -1,0 +1,171 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>기업 분석 서비스 키업</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="{% static 'vendor/lightbox2/css/lightbox.css' %}">
+    <!-- Custom font icons-->
+    <link rel="stylesheet" href="{% static 'css/fontastic.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/style.default.css" id="theme-stylesheet' %}">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        iframe{
+            width: 900px;
+            height: 500px;
+            border: 5px solid black;
+
+        }
+
+        body{
+            text-align: center;
+        }
+
+        .aa{
+          padding: 20px;
+        }
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- navbar-->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container"><a href="./" class="navbar-brand"><img src="{% static 'img/logologo.svg' %}" alt="" class="img-fluid"></a>
+          <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"> <a href="{% url 'home' %}" class="nav-link active">홈</a></li>
+            </ul><a href="#" data-toggle="modal" data-target="#login" class="btn btn-primary navbar-btn ml-0 ml-lg-3">로그인</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Login Modal-->
+    <div id="login" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade bd-example-modal-lg">
+      <div role="document" class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-bottom-0">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body p-4 p-lg-5">
+            <form action="#" class="login-form text-left">
+              <div class="form-group mb-4">
+                <label>Email address</label>
+                <input type="email" name="email" placeholder="name@company.com" class="form-control">
+              </div>
+              <div class="form-group mb-4">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Min 8 characters" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h1>{{name}}</h1>
+
+    <br>
+    <br>
+    <iframe src="{% url 'graph_4' %}"></iframe>
+    <br>
+    <br>
+    {% for key in r_x %}
+      <a href="https://news.google.com/search?q={{name}} {{key}}&hl=ko&gl=KR&ceid=KR%3Ako" target="_blank" class="aa">{{key}}</a>
+    {%endfor%}
+    <br>
+    <br>
+    <iframe src="{% url 'graph_1' %}"></iframe>
+    <br>
+    <br>
+
+    
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          {% for key in keyword_5 %}
+          <th scope="col">{{key}}</th>
+          {%endfor%}
+        </tr>
+      </thead>
+
+
+      <tbody>
+        <tr>
+            {% for a in a %}
+            <td>{{a}}</td>
+            {%endfor%}
+        </tr>
+        <tr>
+            {% for b in b %}
+            <td>{{b}}</td>
+            {%endfor%}
+        </tr>
+        <tr>
+            {% for c in c %}
+            <td>{{c}}</td>
+            {%endfor%}
+        </tr>
+        <tr>
+            {% for d in d %}
+            <td>{{d}}</td>
+            {%endfor%}
+        </tr>
+        <tr>
+            {% for e in e %}
+            <td>{{e}}</td>
+            {%endfor%}
+        </tr>
+      </tbody>
+    </table>
+
+    <iframe src="{% url 'graph_2' %}"></iframe>
+    <br>
+    <br>
+    <iframe src="{% url 'graph_3' %}"></iframe>
+
+    
+ 
+    
+    <!-- JavaScript files-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'vendor/lightbox2/js/lightbox.js' %}"></script>
+    <script src="{% static 'js/front.js' %}"></script>
+  </body>
+</html>
